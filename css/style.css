@@ -16,3 +16,12 @@ nav > p{
 h1{
     font-family: 'Montserrat', sans-serif;
 }
+
+div{
+    display: flex;
+    flex-direction: column;
+}
+
+.divider{
+    border-bottom: lightgray solid 1px;
+}
