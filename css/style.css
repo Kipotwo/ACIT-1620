@@ -3,8 +3,14 @@ body{
 }
 
 nav{
+    display: flex;
+    justify-content: center;
     background-color: lightblue;
     text-align: center;
+}
+
+nav > p{
+    margin: 10px;
 }
 
 h1{
