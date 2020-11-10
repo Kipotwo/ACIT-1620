@@ -41,3 +41,18 @@ a + p{
     grid-column: 1/2;
     grid-row: 2/3;
 }
+
+@media screen and (max-width: 600px)
+{
+    nav{
+        flex-direction: column;
+    }
+
+    nav > p{
+        margin: auto;
+    }
+
+    div{
+        display: block;
+    }
+}
