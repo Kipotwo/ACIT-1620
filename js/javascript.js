@@ -1,7 +1,8 @@
 function createCourseArray(){
     let courseList = [];
+    // Gets all div elements
     let divBlocks = document.querySelectorAll("div");
-    console.log(divBlocks[0])
+    // For every div element, add a name and a r
     for (i = 0; i < divBlocks.length; i++){
         let courseCode = divBlocks[i].querySelector("a").innerHTML
         let courseDate = divBlocks[i].querySelector("p").innerHTML
@@ -14,6 +15,7 @@ function createCourseArray(){
 function findCourse(courseList){
     let user_input = "Placeholder text"
     let length_of_input = 0;
+    let check = true
 
     do{
         user_input = prompt("Enter a 4 digit code: ");
@@ -31,13 +33,28 @@ function findCourse(courseList){
             divBlocks[course].style.backgroundColor = "green";
         }
         else{
-            // If user input is not in any object's code, make a new object
-            new_object = {code: user_input, name: null}
-            courseList.push(new_object)
-            console.log(courseList)
-            console.log(`Successfully added new object with code: ${user_input}`)
-            break
+            // If user input is not make check = false
+            check = false
         }
+    }
+
+    if (check === false){
+        // If check is false, make a new div element
+        let sectionElement = document.querySelector("section");
+        let newDiv = document.createElement("div");
+        sectionElement.appendChild(newDiv);
+        
+        // Then add text elements
+        let divElements = document.querySelectorAll("div");
+        divElements[divElements.length - 2].setAttribute("class", "divider")
+        let newCode = document.createElement("a")
+        let name = document.createTextNode(user_input + " - N/A")
+        newCode.append(name)
+        let newDate = document.createElement("p")
+        let date = document.createTextNode("Fall 2020")
+        newDate.append(date)
+        divElements[divElements.length - 1].append(newCode)
+        divElements[divElements.length - 1].append(newDate)
     }
 }
 
